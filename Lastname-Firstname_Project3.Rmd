@@ -1,5 +1,10 @@
 ---
 title: "Lastname-Firstname_Project3"
+author:
+- Guillermo Delgado
+- Katie Guillen
+- Leanne Harper
+- Nicolas Schoonmaker
 output:
   html_document:
     toc: yes
