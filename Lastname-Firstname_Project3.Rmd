@@ -76,6 +76,7 @@ knitr::knit_hooks$set(mysize = function(before, options, envir) {
 #install.packages("moments")
 #install.packages("matrixStats")
 #install.packages("quantreg")
+#install.packages("flexdashboard")
 ```
 
 ## Libraries to include
@@ -84,6 +85,7 @@ knitr::knit_hooks$set(mysize = function(before, options, envir) {
 library(stats)
 library(dplyr)
 library(rstudioapi)
+library(flexdashboard)
 ```
 
 ## Get Working Directory
@@ -124,11 +126,11 @@ if(dir.exists(paste(getwd(),"/data", sep = "")) == FALSE) {
 }
 ```
 
-## Purpose, Process, Product
+# Purpose, Process, Product
 
 This group assignment will cover Sessions 5 and 6 (two weeks). We explore market risk with existing commodities in conventional metal spot markets. Specifically we will build upon our previous practice reading in data, exploring time series, estimating auto and cross correlations, and investigating volatility clustering in financial time series. Further, we will estimaet VaR and ES and use GPD to explore the extremes of distributions of financial returns. We will summarize our experiences in a dashboard format. 
 
-## Assignment
+# Assignment
 
 Submit into **Coursework > Assignments and Grading > Project 3 > Submission** an `RMD`  file with filename **lastname_firstname_Assignment3.Rmd** as well as the HTML file generated with a Knit. If you have difficulties submitting a `.Rmd` file, then submit a `.txt` file.. 
 
@@ -144,7 +146,7 @@ Submit into **Coursework > Assignments and Grading > Project 3 > Submission** an
 
 6. **If the Knit to flex_dashboard gives errors, try adding "runtime: shiny" in the YAML header, and 'Run Document' instead **
 
-## Flexdashboard
+# Flexdashboard
 
 We begin to expand our range of production capabilities. we started with Knitting .Rmd to PDF file in Assignment1, then moved to knitting .Rmd to HTML file in Assignment2. Now we introduce ourselves to the `flexdashboard` package to start building a web application with multi-page and multi-column design. Later, we will add shiny for interactive pages.
 
@@ -160,7 +162,7 @@ We begin to expand our range of production capabilities. we started with Knittin
 
 6. **Join any Office hour prior to Live Session 8 to discuss installation & testing issues.** 
 
-## Problem
+# Problem
 
 A freight forwarder with a fleet of bulk carriers wants to optimize their portfolio in  metals markets with entry into the nickel business and use of the tramp trade.  Tramp ships are the company's "swing" option without any fixed charter or other constraint. They allow the company flexibility in managing several aspects of freight uncertainty. The call for tramp transportation is a _derived demand_ based on the value of the cargoes. This value varies widely in the spot markets. The company allocates \$250 million to manage receivables. The company wants us to:
 
@@ -179,13 +181,15 @@ Here is some additional detail.
 3.	Customers: Ship Owners, manufacturers, traders
 4.  All metals are traded on the London Metal Exchange 
 
-### Key business questions - include as Business Perspectives at the end.
+### Key business questions
+Include as Business Perspectives at the end.
 
 1.	How would the performance of these commodities affect the size and timing of shipping arrangements?
 2.	How would the value of new shipping arrangements affect the value of our business with our current customers?
 3.	How would we manage the allocation of existing resources given we have just landed in this new market?
 
-### Getting to a reponse - these detailed questions are answered in part by the tables, graphs and models developed - add commentary as needed to explain the outputs
+### Getting to a reponse
+These detailed questions are answered in part by the tables, graphs and models developed - add commentary as needed to explain the outputs
 
 1. What is the decision the freight-forwarder must make? List key business questions and data needed to help answer these questions and support the freight-forwarder's decision. Retrieve data and build financial market detail into the data story behind the questions.
 
@@ -317,11 +321,11 @@ one <- abs(data.zr[,1])
 two <- abs(data.zr[,2])
 title <- "Nickel-Copper: volatility"
 run_ccf(one, two, main = title, lag = 20, color = "red")
-##
+#
 # Load the data_moments() function
-## data_moments function
-## INPUTS: r vector
-## OUTPUTS: list of scalars (mean, sd, median, skewness, kurtosis)
+# data_moments function
+# INPUTS: r vector
+# OUTPUTS: list of scalars (mean, sd, median, skewness, kurtosis)
 data_moments <- function(data){
   library(moments)
   library(matrixStats)
@@ -340,7 +344,7 @@ answer <- data_moments(data.xts[, 4:6])
 answer <- round(answer, 4)
 knitr::kable(answer)
 mean(data.xts[,4])
-##
+#
 returns1 <- returns[,1]
 colnames(returns1) <- "Returns" #kluge to coerce column name for df
 returns1.df <- data.frame(Returns = returns1[,1], Distribution = rep("Historical", each = length(returns1)))
@@ -370,7 +374,7 @@ p
 **CODE: DO THE SAME FOR RETURNS 2 AND 3**
 
 ```{r }
-## Now for Loss Analysis
+# Now for Loss Analysis
 # Get last prices
 price.last <- as.numeric(tail(data[, -1], n=1))
 # Specify the positions
@@ -380,14 +384,14 @@ w <- position.rf * price.last
 # Fan these  the length and breadth of the risk factor series
 weights.rf <- matrix(w, nrow=nrow(data.r), ncol=ncol(data.r), byrow=TRUE)
 #head(rowSums((exp(data.r/100)-1)*weights.rf), n=3)
-## We need to compute exp(x) - 1 for very small x: expm1 accomplishes this
+# We need to compute exp(x) - 1 for very small x: expm1 accomplishes this
 #head(rowSums((exp(data.r/100)-1)*weights.rf), n=4)
 loss.rf <- -rowSums(expm1(data.r/100) * weights.rf)
 loss.rf.df <- data.frame(Loss = loss.rf, Distribution = rep("Historical", each = length(loss.rf)))
-## Simple Value at Risk and Expected Shortfall
+# Simple Value at Risk and Expected Shortfall
 alpha.tolerance <- .95
 VaR.hist <- quantile(loss.rf, probs=alpha.tolerance, names=FALSE)
-## Just as simple Expected shortfall
+# Just as simple Expected shortfall
 ES.hist <- median(loss.rf[loss.rf > VaR.hist])
 VaR.text <- paste("Value at Risk =\n", round(VaR.hist, 2)) # ="VaR"&c12
 ES.text <- paste("Expected Shortfall \n=", round(ES.hist, 2))
@@ -418,7 +422,7 @@ mep.df <- data.frame(threshold = u, threshold.exceedances = e, lower = lower, up
 loss.excess <- loss.rf[loss.rf > u]
 # Voila the plot => you may need to tweak these limits!
 p <- ggplot(mep.df, aes( x= threshold, y = threshold.exceedances)) + geom_line() + geom_line(aes(x = threshold, y = lower), colour = "red") + geom_line(aes(x = threshold,  y = upper), colour = "red") + annotate("text", x = 400, y = 200, label = "upper 95%") + annotate("text", x = 200, y = 0, label = "lower 5%")
-##
+#
 # GPD to describe and analyze the extremes
 #
 #library(QRM)
@@ -449,14 +453,16 @@ loss.plot <- loss.plot + xlim(0,500) + ggtitle(title.text)
 showRM(fit, alpha = 0.99, RM = "VaR", method = "BFGS")
 showRM(fit, alpha = 0.99, RM = "ES", method = "BFGS") 
 
-##
+#
 # Generate overlay of historical and GPD; could also use Gaussian or t as well from the asynchronous material
 ```
 
 
-## ** Conclusion (organize within flex_dashboard)**
+# Conclusion
 
-### Skills and Tools
+**Organize within flex_dashboard**
+
+## Skills and Tools
 :
 (REPLACE text here)
 
@@ -464,7 +470,7 @@ What skills contributed towards data exploration and anaytics?
 
 :
 
-### Data Insights
+## Data Insights
 :
 (REPLACE text here)
 
@@ -472,7 +478,7 @@ Explain some of the data exploration, statistics and graphs here - include GPD.
 
 :
 
-### Business Remarks
+## Business Remarks
 :
 (REPLACE text here)
 
@@ -481,5 +487,3 @@ How would the performance of these commodities affect the size and timing of shi
 How would the value of new shipping arrangements affect the value of our business with our current customers?
 
 How would we manage the allocation of existing resources given we have just landed in this new market? 
-
-:
