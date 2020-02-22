@@ -55,6 +55,75 @@ knitr::knit_hooks$set(mysize = function(before, options, envir) {
 })
 ```
 
+## Packages to install
+```{r Packages and Installers}
+# Install RTools
+# https://cran.rstudio.com/bin/windows/Rtools/
+#
+# Install Tinytex
+# tinytex::install_tinytex()
+#
+# Restart R Studio
+#
+# Install packages
+#install.packages("dplyr")
+#install.packages("rstudioapi")
+#install.packages("tinytex")
+#install.packages("magick")
+#install.packages("plotly")
+#install.packages("xts")
+#install.packages("ggplot2")
+#install.packages("moments")
+#install.packages("matrixStats")
+#install.packages("quantreg")
+```
+
+## Libraries to include
+```{r Library Includes}
+# The list of libraries to include
+library(stats)
+library(dplyr)
+library(rstudioapi)
+```
+
+## Get Working Directory
+Get the currenet working directory so we can run this file from anywhere. This will allow this script to work from RStudio or from the command line
+```{r Get current directory}
+# Get the directory so we can run this from anywhere
+# Get the script directory from R when running in R
+if(rstudioapi::isAvailable())
+{
+  print("Running in RStudio")
+  script.path <- rstudioapi::getActiveDocumentContext()$path
+  (script.path)
+  script.dir <- dirname(script.path)
+}
+if(!exists("script.dir"))
+{
+  print("Running from command line")
+  script.dir <- getSrcDirectory(function(x) {x})
+}
+(script.dir)
+```
+
+## Set Working Directory
+Set the working directory based on where the script is
+```{r Working Directory and Data setup}
+# Set my working directory
+# There is a "data" folder here with the files and the script
+setwd(script.dir)
+# Double check the working directory
+getwd()
+# Error check to ensure the working directory is set up and the data
+# directory exists inside it.  Its required for this file
+if(dir.exists(paste(getwd(),"/data", sep = "")) == FALSE) {
+  stop("Data directory does not exist. Make sure the working directory
+       is set using setwd() and the data folder exists in it.")
+} else {
+  print("Working directory and data set up correctly")
+}
+```
+
 ## Purpose, Process, Product
 
 This group assignment will cover Sessions 5 and 6 (two weeks). We explore market risk with existing commodities in conventional metal spot markets. Specifically we will build upon our previous practice reading in data, exploring time series, estimating auto and cross correlations, and investigating volatility clustering in financial time series. Further, we will estimaet VaR and ES and use GPD to explore the extremes of distributions of financial returns. We will summarize our experiences in a dashboard format. 
