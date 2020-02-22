@@ -1,10 +1,10 @@
 ---
-title: 'Project #3: Escapades in Market Risk'
+title: "Lastname-Firstname_Project3"
 output:
   html_document:
     toc: yes
     toc_float: yes
-subtitle: 'Live Sessions: weeks 5 and 6'
+subtitle: 'Project #3: Escapades in Market Risk'
 header-includes:
 - \usepackage{fancyhdr}
 - \pagestyle{fancy}
