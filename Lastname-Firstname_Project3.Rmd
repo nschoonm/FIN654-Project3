@@ -22,7 +22,23 @@ header-includes:
 - \renewcommand{\footrulewidth}{0.5pt}
 ---
 
-```{r setup, include=FALSE}
+# Setup
+Using RMD from: https://wgfoote.github.io/fin-alytics/HTML/PR03_market-risk.html
+
+## GitHub
+Our code is on github at: https://github.com/nschoonm/FIN654-Project3
+
+## Disable inline preview
+To disable inline preview of the Markdown file, go in RStudio, Tools > Global Options... > R Markdown > Show equations and Image previews (Never)
+
+## Knit Notes
+This must be knit as an HTML file because this contains an animated gif that can not easily be added to a PDF
+
+## Setup chunk defaults
+```{r Chunk setup}
+require(knitr)
+
+# Echo the output
 knitr::opts_chunk$set(echo = TRUE, eval = TRUE, warning=FALSE, message=FALSE)
 knitr::opts_chunk$set(tidy = TRUE)
 knitr::opts_chunk$set(tidy.opts=list(width.cutoff=36))
