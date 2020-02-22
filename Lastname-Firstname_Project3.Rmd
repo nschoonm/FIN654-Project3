@@ -5,10 +5,13 @@ author:
 - Katie Guillen
 - Leanne Harper
 - Nicolas Schoonmaker
+date: "`r format(Sys.time(), '%m/%d/%Y')`"
 output:
   html_document:
-    toc: yes
-    toc_float: yes
+    toc: true
+    toc_float: true
+  word_document: default
+  pdf_document: default
 subtitle: 'Project #3: Escapades in Market Risk'
 header-includes:
 - \usepackage{fancyhdr}
