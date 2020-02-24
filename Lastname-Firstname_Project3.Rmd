@@ -279,9 +279,9 @@ aluminium.vols <- as.numeric(R.corr.vols[,"aluminium.vols"])
 
 library(quantreg)
 taus <- seq(.05,.95,.05)	# Roger Koenker UI Bob Hogg and Allen Craig
-fit.rq.nickel.copper <- rq(log(nickel.copper) ~ log(copper.vol), tau = taus, data = r_corr_vol)	
-fit.lm.nickel.copper <- lm(log(nickel.copper) ~ log(copper.vol), data = r_corr_vol)	
-#' Some test statements	
+fit.rq.nickel.copper <- rq(log(nickel.copper) ~ log(copper.vol), tau = taus, data = r_corr_vol)
+fit.lm.nickel.copper <- lm(log(nickel.copper) ~ log(copper.vol), data = r_corr_vol)
+#' Some test statements
 ni.cu.summary <- summary(fit.rq.nickel.copper, se = "boot")
 ```
 
