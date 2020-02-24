@@ -77,6 +77,8 @@ knitr::knit_hooks$set(mysize = function(before, options, envir) {
 #install.packages("matrixStats")
 #install.packages("quantreg")
 #install.packages("flexdashboard")
+#install.packages("QRM")
+#install.packages("qrmdata")
 ```
 
 ## Libraries to include
