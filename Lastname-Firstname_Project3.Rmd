@@ -271,6 +271,7 @@ R.corr <- R.corr[, c(2, 3, 6)]
 colnames(R.corr) <- c("nickel.copper", "nickel.aluminium", "copper.aluminium") 	
 colnames(R.vols) <- c("nickel.vols", "copper.vols", "aluminium.vols")	
 R.corr.vols <- na.omit(merge(R.corr, R.vols))
+R.corr.vols.logs <- na.omit(log(R.corr.vols))
 year <- format(index(R.corr.vols), "%Y")
 R.corr.vols.y <- data.frame(nickel.correlation = R.corr.vols[,1], copper.volatility = R.corr.vols[,5], year = year)
 nickel.vols <- as.numeric(R.corr.vols[,"nickel.vols"])	
@@ -279,13 +280,13 @@ aluminium.vols <- as.numeric(R.corr.vols[,"aluminium.vols"])
 
 library(quantreg)
 taus <- seq(.05,.95,.05)	# Roger Koenker UI Bob Hogg and Allen Craig
-fit.rq.nickel.copper <- rq(log(nickel.copper) ~ log(copper.vol), tau = taus, data = r_corr_vol)
-fit.lm.nickel.copper <- lm(log(nickel.copper) ~ log(copper.vol), data = r_corr_vol)
-#' Some test statements
-ni.cu.summary <- summary(fit.rq.nickel.copper, se = "boot")
+fit.rq.nickel.copper <- rq(nickel.copper ~ copper.vols, tau = taus, data = R.corr.vols)	
+fit.lm.nickel.copper <- lm(nickel.copper ~ copper.vols, data = R.corr.vols)	
+plot(summary(fit.rq.nickel.copper), parm = "copper.vols", main = "nickel-copper correlation sensitivity to copper volatility")
+(ni.cu.summary <- summary(fit.rq.nickel.copper, se = "boot"))
 ```
 
-**CODE: TRY THE OTHER COMBINATIONS**
+**CODE: TRY THE OTHER TWO COMBINATIONS: "nickel.aluminium", "copper.aluminium"**
 
 ```{r }
 title.chg <- "Metals Market Percent Changes"
