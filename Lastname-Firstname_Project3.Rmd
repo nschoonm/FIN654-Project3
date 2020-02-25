@@ -278,12 +278,30 @@ nickel.vols <- as.numeric(R.corr.vols[,"nickel.vols"])
 copper.vols <- as.numeric(R.corr.vols[,"copper.vols"])	
 aluminium.vols <- as.numeric(R.corr.vols[,"aluminium.vols"])
 
+## Nickel-Copper correlation sensitivity to copper volatility
 library(quantreg)
 taus <- seq(.05,.95,.05)	# Roger Koenker UI Bob Hogg and Allen Craig
 fit.rq.nickel.copper <- rq(nickel.copper ~ copper.vols, tau = taus, data = R.corr.vols)	
 fit.lm.nickel.copper <- lm(nickel.copper ~ copper.vols, data = R.corr.vols)	
 plot(summary(fit.rq.nickel.copper), parm = "copper.vols", main = "nickel-copper correlation sensitivity to copper volatility")
 (ni.cu.summary <- summary(fit.rq.nickel.copper, se = "boot"))
+
+## Nickel-Aluminium correlation sensitivity to copper to volatility
+library(quantreg)
+taus <- seq(.05,.95,.05)	# Roger Koenker UI Bob Hogg and Allen Craig
+fit.rq.nickel.aluminium <-  rq(nickel.aluminium ~ copper.vols, tau = taus, data = R.corr.vols)	
+fit.lm.nickel.aluminium <- lm(nickel.aluminium ~ copper.vols, data = R.corr.vols)	
+plot(summary(fit.rq.nickel.aluminium), parm = "copper.vols", main = "nickel-aluminium correlation sensitivity to copper volatility")
+(ni.cu.summary <- summary(fit.rq.nickel.aluminium, se = "boot"))
+
+## Copper-Aluminium correlation sensitivity to copper volatility
+library(quantreg)
+taus <- seq(.05,.95,.05)	# Roger Koenker UI Bob Hogg and Allen Craig
+fit.rq.copper.aluminium <- rq(copper.aluminium ~ copper.vols, tau = taus, data = R.corr.vols)	
+fit.lm.copper.aluminium <- lm(copper.aluminium ~ copper.vols, data = R.corr.vols)	
+plot(summary(fit.rq.copper.aluminium), parm = "copper.vols", main = "copper-aluminium correlation sensitivity to copper volatility")
+(ni.cu.summary <- summary(fit.rq.copper.aluminium, se = "boot"))
+
 ```
 
 **CODE: TRY THE OTHER TWO COMBINATIONS: "nickel.aluminium", "copper.aluminium"**
@@ -347,7 +365,8 @@ answer <- data_moments(data.xts[, 4:6])
 answer <- round(answer, 4)
 knitr::kable(answer)
 mean(data.xts[,4])
-#
+
+#Return on nickel
 returns1 <- returns[,1]
 colnames(returns1) <- "Returns" #kluge to coerce column name for df
 returns1.df <- data.frame(Returns = returns1[,1], Distribution = rep("Historical", each = length(returns1)))
@@ -371,6 +390,48 @@ p <- ggplot(returns1.df, aes(x = Returns, fill = Distribution)) + geom_density(a
     geom_vline(aes(xintercept = ES.hist), size = 1, color = "firebrick1") +
     annotate("text", x = 2+ VaR.hist, y = VaR.y*1.05, label = VaR.text) +
     annotate("text", x = 1.5+ ES.hist, y = VaR.y*1.1, label = ES.text) + scale_fill_manual( values = "dodgerblue4")
+p
+
+#Return on copper
+returns2 <- returns[,2]
+colnames(returns2)<- "Returns" #kluge to coerce column name for df
+returns2.df <- data.frame(Returns = returns2[,1], Distribution = rep("Historical", each = length(returns2)))
+  
+# Value at Risk
+VaR2.hist <- quantile(returns2,alpha)
+VaR2.text <- paste("Value at Risk =", round(VaR2.hist, 2))
+VaR2.y <- max(density(returns2.df$Returns)$y)
+  
+# Expected Shortfall
+ES2.hist <- median(returns2[returns2 > VaR2.hist])
+ES2.text <- paste("Expected Shortfall =", round(ES2.hist, 2))
+  
+p <- ggplot(returns2.df, aes(x = Returns, fill = Distribution)) + geom_density(alpha = 0.5) + 
+    geom_vline(aes(xintercept = VaR2.hist), linetype = "dashed", size = 1, color = "firebrick1") + 
+    geom_vline(aes(xintercept = ES2.hist), size = 1, color = "firebrick1") +
+    annotate("text", x = 2+ VaR2.hist, y = VaR.y*1.05, label = VaR2.text) +
+    annotate("text", x = 1.5+ ES2.hist, y = VaR.y*1.1, label = ES2.text) + scale_fill_manual( values = "dodgerblue4")
+p
+
+#Return on aluminium
+returns3 <- returns[,3]
+colnames(returns3)<- "Returns" #kluge to coerce column name for df
+returns3.df <- data.frame(Returns = returns3[,1], Distribution = rep("Historical", each = length(returns3)))
+  
+# Value at Risk
+VaR3.hist <- quantile(returns3,alpha)
+VaR3.text <- paste("Value at Risk =", round(VaR3.hist, 2))
+VaR3.y <- max(density(returns3.df$Returns)$y)
+  
+# Expected Shortfall
+ES3.hist <- median(returns3[returns3 > VaR3.hist])
+ES3.text <- paste("Expected Shortfall =", round(ES3.hist, 2))
+  
+p <- ggplot(returns3.df, aes(x = Returns, fill = Distribution)) + geom_density(alpha = 0.5) + 
+    geom_vline(aes(xintercept = VaR3.hist), linetype = "dashed", size = 1, color = "firebrick1") + 
+    geom_vline(aes(xintercept = ES3.hist), size = 1, color = "firebrick1") +
+    annotate("text", x = 2+ VaR3.hist, y = VaR.y*1.05, label = VaR3.text) +
+    annotate("text", x = 1.5+ ES3.hist, y = VaR.y*1.1, label = ES3.text) + scale_fill_manual( values = "dodgerblue4")
 p
 ```
 
