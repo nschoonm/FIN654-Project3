@@ -278,6 +278,28 @@ nickel.vols <- as.numeric(R.corr.vols[,"nickel.vols"])
 copper.vols <- as.numeric(R.corr.vols[,"copper.vols"])	
 aluminium.vols <- as.numeric(R.corr.vols[,"aluminium.vols"])
 
+#data = R.corr.vols
+#marketRisk = nickel.copper
+#standardDeviation = copper.vols
+#correlationName = "nickel-copper"
+#volatilityName = "copper"
+run_correlation_sensitivity <- function(corrAndVols, marketRisk, standardDeviation, correlationName, volatilityName){
+  library(quantreg)
+  taus <- seq(.05,.95,.05)	# Roger Koenker UI Bob Hogg and Allen Craig
+  new_formula <- reformulate(response = marketRisk, termlabels = standardDeviation)
+  fit.rq.a <- rq(new_formula, tau = taus, data = corrAndVols)	
+  fit.lm.a <- lm(new_formula, data = corrAndVols)	
+  plot(summary(fit.rq.a), parm = standardDeviation, main = paste(correlationName, "correlation sensitivity to", volatilityName, "volatiltiy", sep=" "))
+  (ni.cu.summary <- summary(fit.rq.a, se = "boot"))
+}
+
+run_correlation_sensitivity(R.corr.vols, "nickel.copper", "copper.vols", "nickel-copper", "copper")
+
+run_correlation_sensitivity(R.corr.vols, "nickel.aluminium", "aluminium.vols", "nickel-aluminium", "aluminium")
+
+ "copper.aluminium"
+run_correlation_sensitivity(R.corr.vols, "copper.aluminium", "aluminium.vols", "copper-aluminium", "copper")
+
 ## Nickel-Copper correlation sensitivity to copper volatility
 library(quantreg)
 taus <- seq(.05,.95,.05)	# Roger Koenker UI Bob Hogg and Allen Craig
