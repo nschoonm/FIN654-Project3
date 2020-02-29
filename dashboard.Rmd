@@ -3,29 +3,30 @@ title: "Project #3: Escapades in Market Risk"
 output: flexdashboard::flex_dashboard
 ---
 
-Page 1 {data-orientation=columns}
+Background {data-orientation=columns}
 =====================================  
     
 Column {data-width=600}
 -------------------------------------
     
-### Chart 1
-    
-```{r}
-```
-   
+### Problem
+
+[Problem statement]
+
+### Additional details
+
+[project resources and info]
+
+### Key business questions
+
+[business questions]
+
 Column {data-width=400}
 -------------------------------------
    
-### Chart 2
+### Getting a response: More detailed questions
 
-```{r}
-```   
- 
-### Chart 3
-    
-```{r}
-```
+[Detailed questions]
 
 Page 2 {data-orientation=rows}
 =====================================     
