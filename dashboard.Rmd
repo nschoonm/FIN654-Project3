@@ -307,14 +307,12 @@ Row {data-height=300}
 
 ### Returns % change - ACF
 
-Returns % change - ACF
 ```{r}
 acf(coredata(data.xts[,1:3])) # returns
 ```
 
 ### Size Returns % change - ACF
 
-Size Returns % change - ACF
 ```{r}
 acf(coredata(data.xts[,4:6])) # sizes
 ```
@@ -342,7 +340,6 @@ run_ccf <- function(one, two, main = title.chg, lag = 20, color = "red"){
 }
 ```
 
-Returns % change - PACF
 ```{r}
 # Add graphs for Returns % change - PACF
 one <- ts(data.zr[,1]) # nickel
@@ -353,7 +350,6 @@ run_ccf(one, two, main = title, lag = 20, color = "red")
 
 ### Size Returns % change - PACF
 
-Size Returns % change - PACF
 ```{r}
 # Add graphs for Size Returns % change - PACF
 # now for volatility (sizes)
