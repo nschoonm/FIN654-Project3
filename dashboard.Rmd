@@ -1,6 +1,20 @@
 ---
 title: "Project #3: Escapades in Market Risk"
+author:
+- Nicolas Schoonmaker
+- Guillermo Delgado
+- Katie Guillen
+- Leanne Harper
+date: "`r format(Sys.time(), '%m/%d/%Y')`"
 output: flexdashboard::flex_dashboard
+subtitle: 'Lastname-Firstname_Project3'
+header-includes:
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+- \fancyhead[CO,CE]{\thetitle}
+- \fancyfoot[CO,CE]{Copyright 2018, William G. Foote}
+- \fancyhead[RE,RO]{\thepage}
+- \renewcommand{\footrulewidth}{0.5pt}
 ---
 
 ```{r include=FALSE}
