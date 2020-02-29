@@ -3,6 +3,10 @@ title: "Project #3: Escapades in Market Risk"
 output: flexdashboard::flex_dashboard
 ---
 
+```{r include=FALSE}
+# ----------------------- Background section -------------------------
+```
+
 Background {data-orientation=columns}
 =====================================  
     
@@ -28,26 +32,49 @@ Column {data-width=400}
 
 [Detailed questions]
 
-Page 2 {data-orientation=rows}
+```{r include=FALSE}
+# --------------------- Data Exploration section -----------------------
+```
+
+Data Exploration {data-orientation=rows}
 =====================================     
    
 Row {data-height=600}
 -------------------------------------
 
-### Chart 1
+### Graphs
 
+Metals Market Percent Changes
 ```{r}
+# Add graphs
+```
+<br/><br/>
+
+Metals Market Percent Changes - Size  
+```{r}
+# Add graph of size
+```
+   
+### Data
+
+Descriptive Statistics
+```{r}
+# Add min/1st qu/median/srd qu/max of nickel/copper/alum
+```
+<br/><br/>
+
+Data Moments
+```{r}
+# Output the copper.size, alum.size, nickel.dir and copper.dir
+# this should be mean, median, std_dev, IQR, skewness, kurtosis
 ```
 
 Row {data-height=400}
 -------------------------------------
-   
-### Chart 2
-
-```{r}
-```   
     
-### Chart 3
+### Data Insights
 
-```{r}
-```
+[Add data insights from graphs and data]
+<br/><br/>
+
+[Talk abut time frame, volatility, correlation, skewness andkurtosis]
