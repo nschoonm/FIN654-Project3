@@ -594,14 +594,14 @@ loss.plot <- loss.plot + xlim(0,500) + ggtitle(title.text)
 Row {data-height=700}
 -------------------------------------
 
-### Estimated tail probabilities for confidence interval x
+### Estimated tail probabilities: Risk Measure = Value at Risk ("VaR")
 
 ```{r}
 # Add graphs for Estimated tail probabilities for confidence interval x
 showRM(fit, alpha = 0.99, RM = "VaR", method = "BFGS")
 ```
 
-### Estimated tail probabilities for confidence interval y
+### Estimated tail probabilities: Risk Measure = Expected Shortfall ("ES")
 
 ```{r}
 # Add graphs for Estimated tail probabilities for confidence interval y
