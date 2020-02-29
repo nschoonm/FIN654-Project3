@@ -78,3 +78,52 @@ Row {data-height=400}
 <br/><br/>
 
 [Talk abut time frame, volatility, correlation, skewness andkurtosis]
+
+
+```{r include=FALSE}
+# --------------------- Volatility section -----------------------
+```
+
+Volatility {data-orientation=rows}
+=====================================     
+   
+Row {data-height=300}
+-------------------------------------
+
+### Returns % change - ACF
+
+Returns % change - ACF
+```{r}
+# Add graphs for Returns % change - ACF
+```
+
+### Size Returns % change - ACF
+
+Size Returns % change - ACF
+```{r}
+# Add graphs for Size Returns % change - ACF
+```
+
+Row {data-height=300}
+-------------------------------------
+    
+### Returns % change - PACF
+
+Returns % change - ACF
+```{r}
+# Add graphs for Returns % change - PACF
+```
+
+### Size Returns % change - PACF
+
+Size Returns % change - ACF
+```{r}
+# Add graphs for Size Returns % change - PACF
+```
+
+Row {data-height=300}
+-------------------------------------
+
+### Data Insights
+
+[Add data insights. Something about weekly vs monthly, tails, volatility, etc ]
