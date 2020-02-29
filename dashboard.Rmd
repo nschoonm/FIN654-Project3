@@ -127,3 +127,42 @@ Row {data-height=300}
 ### Data Insights
 
 [Add data insights. Something about weekly vs monthly, tails, volatility, etc ]
+
+
+```{r include=FALSE}
+# --------------------- Correlation Sensitivity section -----------------------
+```
+
+Correlation Sensitivity {data-orientation=rows}
+=====================================     
+   
+Row {data-height=700}
+-------------------------------------
+
+### nickel-copper correlation sensitivity to copper volatility
+
+nickel-copper correlation sensitivity to copper volatility
+```{r}
+# Add graphs for nickel-copper correlation sensitivity to copper volatility
+```
+
+### copper-aluminum correlation sensitivity to aluminum volatility
+
+copper-aluminum correlation sensitivity to aluminum volatility
+```{r}
+# Add graphs for copper-aluminum correlation sensitivity to aluminum volatility
+```
+
+### nickel-aluminum correlation sensitivity to aluminum volatility
+
+nickel-aluminum correlation sensitivity to aluminum volatility
+```{r}
+# Add graphs for nickel-aluminum correlation sensitivity to aluminum volatility
+```
+
+Row {data-height=300}
+-------------------------------------
+
+### Data Insights
+
+[Add data insights. Talk about variance, spikes, positive vs negative]
