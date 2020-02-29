@@ -238,19 +238,50 @@ autoplot.zoo(data.xts[,1:3]) + ggtitle(title.chg) + ylim(-5, 5)
 title.chg <- "Metals Market Percent Changes - Size"
 autoplot.zoo(data.xts[,4:6]) + ggtitle(title.chg) + ylim(-5, 5)
 ```
-   
-### Data
 
+### Data
 Descriptive Statistics
 ```{r}
 # Add min/1st qu/median/srd qu/max of nickel/copper/alum
+summary(data.r, digits=3)
 ```
-<br/><br/>
 
+```{r}
+# Add min/1st qu/median/srd qu/max of nickel/copper/alum
+summary(size, digits=3)
+```
+<hr>
 Data Moments
 ```{r}
 # Output the copper.size, alum.size, nickel.dir and copper.dir
 # this should be mean, median, std_dev, IQR, skewness, kurtosis
+#
+# Load the data_moments() function
+# data_moments function
+# INPUTS: r vector
+# OUTPUTS: list of scalars (mean, sd, median, skewness, kurtosis)
+data_moments <- function(data){
+  library(moments)
+  library(matrixStats)
+  mean.r <- colMeans(data)
+  median.r <- colMedians(data)
+  sd.r <- colSds(data)
+  IQR.r <- colIQRs(data)
+  skewness.r <- skewness(data)
+  kurtosis.r <- kurtosis(data)
+  result <- data.frame(mean = mean.r, median = median.r, std_dev = sd.r, IQR = IQR.r, skewness = skewness.r, kurtosis = kurtosis.r)
+  return(result)
+}
+# Run data_moments()
+answer <- data_moments(data.xts[, 4:6])
+# Build pretty table
+answer <- round(answer, 3)
+knitr::kable(answer)
+
+answer <- data_moments(data.xts[, 1:3])
+# Build pretty table
+answer <- round(answer, 3)
+knitr::kable(answer)
 ```
 
 Row {data-height=400}
