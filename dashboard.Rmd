@@ -309,14 +309,14 @@ Row {data-height=300}
 
 Returns % change - ACF
 ```{r}
-# Add graphs for Returns % change - ACF
+acf(coredata(data.xts[,1:3])) # returns
 ```
 
 ### Size Returns % change - ACF
 
 Size Returns % change - ACF
 ```{r}
-# Add graphs for Size Returns % change - ACF
+acf(coredata(data.xts[,4:6])) # sizes
 ```
 
 Row {data-height=300}
@@ -324,16 +324,43 @@ Row {data-height=300}
     
 ### Returns % change - PACF
 
-Returns % change - ACF
+```{r PACF code}
+# build function to repeat these routines
+run_ccf <- function(one, two, main = title.chg, lag = 20, color = "red"){
+  # one and two are equal length series
+  # main is title
+  # lag is number of lags in cross-correlation
+  # color is color of dashed confidence interval bounds
+  stopifnot(length(one) == length(two))
+  one <- ts(one)
+  two <- ts(two)
+  main <- main
+  lag <- lag
+  color <- color
+  ccf(one, two, main = main, lag.max = lag, xlab = "", ylab = "", ci.col = color)
+  #end run_ccf
+}
+```
+
+Returns % change - PACF
 ```{r}
 # Add graphs for Returns % change - PACF
+one <- ts(data.zr[,1]) # nickel
+two <- ts(data.zr[,2]) # copper
+title <- "nickel-copper"
+run_ccf(one, two, main = title, lag = 20, color = "red")
 ```
 
 ### Size Returns % change - PACF
 
-Size Returns % change - ACF
+Size Returns % change - PACF
 ```{r}
 # Add graphs for Size Returns % change - PACF
+# now for volatility (sizes)
+one <- data.zr[,4] # nickel
+two <- data.zr[,5] # copper
+title <- "Nickel-Copper: volatility"
+run_ccf(one, two, main = title, lag = 20, color = "red")
 ```
 
 Row {data-height=300}
