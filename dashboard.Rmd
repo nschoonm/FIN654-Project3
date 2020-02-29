@@ -4,6 +4,74 @@ output: flexdashboard::flex_dashboard
 ---
 
 ```{r include=FALSE}
+# ----------------------- Setup section -------------------------
+```
+
+```{r Packages and Installers}
+# Install RTools
+# https://cran.rstudio.com/bin/windows/Rtools/
+#
+# Restart R Studio
+#
+# Install packages
+#install.packages("dplyr")
+#install.packages("rstudioapi")
+#install.packages("tinytex")
+#install.packages("magick")
+#install.packages("plotly")
+#install.packages("xts")
+#install.packages("ggplot2")
+#install.packages("moments")
+#install.packages("matrixStats")
+#install.packages("quantreg")
+#install.packages("flexdashboard")
+#install.packages("QRM")
+#install.packages("qrmdata")
+```
+
+```{r Library Includes}
+# The list of libraries to include
+library(stats)
+library(dplyr)
+library(rstudioapi)
+library(flexdashboard)
+```
+
+```{r Get current directory}
+# Get the directory so we can run this from anywhere
+# Get the script directory from R when running in R
+if(rstudioapi::isAvailable())
+{
+  print("Running in RStudio")
+  script.path <- rstudioapi::getActiveDocumentContext()$path
+  (script.path)
+  script.dir <- dirname(script.path)
+}
+if(!exists("script.dir"))
+{
+  print("Running from command line")
+  script.dir <- getSrcDirectory(function(x) {x})
+}
+(script.dir)
+```
+
+```{r Working Directory and Data setup}
+# Set my working directory
+# There is a "data" folder here with the files and the script
+setwd(script.dir)
+# Double check the working directory
+getwd()
+# Error check to ensure the working directory is set up and the data
+# directory exists inside it.  Its required for this file
+if(dir.exists(paste(getwd(),"/data", sep = "")) == FALSE) {
+  stop("Data directory does not exist. Make sure the working directory
+       is set using setwd() and the data folder exists in it.")
+} else {
+  print("Working directory and data set up correctly")
+}
+```
+
+```{r include=FALSE}
 # ----------------------- Background section -------------------------
 ```
 
@@ -20,6 +88,8 @@ Column {data-width=600}
 ### Additional details
 
 [project resources and info]
+Using RMD from: https://wgfoote.github.io/fin-alytics/HTML/PR03_market-risk.html  
+Our code is on github at: https://github.com/nschoonm/FIN654-Project3
 
 ### Key business questions
 
