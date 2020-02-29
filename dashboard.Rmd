@@ -225,17 +225,18 @@ Data Exploration {data-orientation=rows}
 Row {data-height=600}
 -------------------------------------
 
-### Graphs
+### Metals Market Percent Changes
 
-Metals Market Percent Changes
 ```{r}
-# Add graphs
+title.chg <- "Metals Market Percent Changes"
+autoplot.zoo(data.xts[,1:3]) + ggtitle(title.chg) + ylim(-5, 5)
 ```
-<br/><br/>
 
-Metals Market Percent Changes - Size  
+### Metals Market Percent Changes - Size
+
 ```{r}
-# Add graph of size
+title.chg <- "Metals Market Percent Changes - Size"
+autoplot.zoo(data.xts[,4:6]) + ggtitle(title.chg) + ylim(-5, 5)
 ```
    
 ### Data
