@@ -166,3 +166,41 @@ Row {data-height=300}
 ### Data Insights
 
 [Add data insights. Talk about variance, spikes, positive vs negative]
+
+```{r include=FALSE}
+# --------------------- Expected Shortfall section -----------------------
+```
+
+Expected Shortfall {data-orientation=rows}
+=====================================     
+   
+Row {data-height=700}
+-------------------------------------
+
+### Nickel Shortfall
+
+Nickel Shortfall
+```{r}
+# Add graphs for Nickel Shortfall
+```
+
+### Copper Shortfall
+
+Copper Shortfall
+```{r}
+# Add graphs for Copper Shortfall
+```
+
+### Aluminum Shortfall
+
+Aluminum Shortfall
+```{r}
+# Add graphs for Aluminum Shortfall
+```
+
+Row {data-height=300}
+-------------------------------------
+
+### Data Insights
+
+[Add data insights. Which has highest risk, tails, expected shortfall values and value at risk values, what do they mean?]
