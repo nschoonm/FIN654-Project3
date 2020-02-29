@@ -290,7 +290,7 @@ run_correlation_sensitivity <- function(corrAndVols, marketRisk, standardDeviati
   fit.rq.a <- rq(new_formula, tau = taus, data = corrAndVols)	
   fit.lm.a <- lm(new_formula, data = corrAndVols)	
   plot(summary(fit.rq.a), parm = standardDeviation, main = paste(correlationName, "correlation sensitivity to", volatilityName, "volatiltiy", sep=" "))
-  (ni.cu.summary <- summary(fit.rq.a, se = "boot"))
+  #(ni.cu.summary <- summary(fit.rq.a, se = "boot"))
 }
 
 run_correlation_sensitivity(R.corr.vols, "nickel.copper", "copper.vols", "nickel-copper", "copper")
@@ -306,7 +306,7 @@ taus <- seq(.05,.95,.05)	# Roger Koenker UI Bob Hogg and Allen Craig
 fit.rq.nickel.copper <- rq(nickel.copper ~ copper.vols, tau = taus, data = R.corr.vols)	
 fit.lm.nickel.copper <- lm(nickel.copper ~ copper.vols, data = R.corr.vols)	
 plot(summary(fit.rq.nickel.copper), parm = "copper.vols", main = "nickel-copper correlation sensitivity to copper volatility")
-(ni.cu.summary <- summary(fit.rq.nickel.copper, se = "boot"))
+#(ni.cu.summary <- summary(fit.rq.nickel.copper, se = "boot"))
 
 ## Nickel-Aluminium correlation sensitivity to aluminium to volatility
 library(quantreg)
@@ -314,7 +314,7 @@ taus <- seq(.05,.95,.05)	# Roger Koenker UI Bob Hogg and Allen Craig
 fit.rq.nickel.aluminium <-  rq(nickel.aluminium ~ aluminium.vols, tau = taus, data = R.corr.vols)	
 fit.lm.nickel.aluminium <- lm(nickel.aluminium ~ aluminium.vols, data = R.corr.vols)
 plot(summary(fit.rq.nickel.aluminium), parm = "aluminium.vols", main = "nickel-aluminium correlation sensitivity to aluminium volatility")
-(ni.cu.summary <- summary(fit.rq.nickel.aluminium, se = "boot"))
+#(ni.cu.summary <- summary(fit.rq.nickel.aluminium, se = "boot"))
 
 ## Copper-Aluminium correlation sensitivity to copper volatility
 library(quantreg)
@@ -322,7 +322,7 @@ taus <- seq(.05,.95,.05)	# Roger Koenker UI Bob Hogg and Allen Craig
 fit.rq.copper.aluminium <- rq(copper.aluminium ~ copper.vols, tau = taus, data = R.corr.vols)	
 fit.lm.copper.aluminium <- lm(copper.aluminium ~ copper.vols, data = R.corr.vols)	
 plot(summary(fit.rq.copper.aluminium), parm = "copper.vols", main = "copper-aluminium correlation sensitivity to copper volatility")
-(ni.cu.summary <- summary(fit.rq.copper.aluminium, se = "boot"))
+#(ni.cu.summary <- summary(fit.rq.copper.aluminium, se = "boot"))
 
 ## Copper-Aluminium correlation sensitivity to aluminium volatility
 library(quantreg)
@@ -330,7 +330,7 @@ taus <- seq(.05,.95,.05)	# Roger Koenker UI Bob Hogg and Allen Craig
 fit.rq.copper.aluminium <- rq(copper.aluminium ~ aluminium.vols, tau = taus, data = R.corr.vols)	
 fit.lm.copper.aluminium <- lm(copper.aluminium ~ aluminium.vols, data = R.corr.vols)
 plot(summary(fit.rq.copper.aluminium), parm = "aluminium.vols", main = "copper-aluminium correlation sensitivity to aluminium volatility")
-(ni.cu.summary <- summary(fit.rq.copper.aluminium, se = "boot"))
+#(ni.cu.summary <- summary(fit.rq.copper.aluminium, se = "boot"))
 
 ```
 
