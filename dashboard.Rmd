@@ -293,7 +293,9 @@ Row {data-height=400}
 <br/><br/>
 
 [Talk abut time frame, volatility, correlation, skewness andkurtosis]
-
+The time series plot shows lots of clustering and large spikes in all 3 metals.  When comparing all 3 metals, we see the most clustering and the heaviest tails in nickel, indicating that nickel has higher volatility than the other metals.  
+As we look at the descriptive statistics we see that nickel has much bigger gains when compared to losses and averages higher returns than both copper and aluminium. 
+The data moments show that size of the returns is highly skewed.  The kurtosis levels indicate a leptokurtic distribution.  This is an indicator of a higher probability of extreme outliers.  
 
 ```{r include=FALSE}
 # --------------------- Volatility section -----------------------
@@ -416,6 +418,7 @@ Row {data-height=300}
 ### Data Insights
 
 [Add data insights. Talk about variance, spikes, positive vs negative]
+The nickel-aluminium correlation sensivity to alumium volatility is the only combination that fits within our limits. The nickel-copper correlation sensivity to copper volatility shows the highest positive spikes.  
 
 ```{r include=FALSE}
 # --------------------- Expected Shortfall section -----------------------
@@ -485,6 +488,10 @@ Row {data-height=300}
 ### Data Insights
 
 [Add data insights. Which has highest risk, tails, expected shortfall values and value at risk values, what do they mean?]
+Nickel VaR = 2.73 ES = 3.5
+Copper VaR = 1.87 ES = 2.27
+Aluminium VaR = 1.96 ES = 2.58
+The variance between the value at risk and the expected shortfall is the smallest for copper close to that of aluminium.  Nickel has the greatest value at risk hence a greater expected shortfall.  We can visually see on the nickel graph that the curve is less peaked and therefore has longer tails than both copper and aluminium.  Entering the nickel market is going to require more capital than is required for our existing customers.     
 
 ```{r include=FALSE}
 # --------------------- Losses section -----------------------
