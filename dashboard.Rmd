@@ -259,3 +259,28 @@ Row {data-height=300}
 ### Data Insights
 
 [Add data insights. Little about GPD, high thresholds vs low, what happens?  What is it more accurate?]
+
+```{r include=FALSE}
+# --------------------- Conclusion section -----------------------
+```
+
+Conclusion {data-orientation=rows}
+=====================================     
+   
+Row {data-height=400}
+-------------------------------------
+
+### Skills and Tools
+
+[List Skills and Tools]
+
+### Data Insights
+
+[Data Insights details]
+
+Row {data-height=600}
+-------------------------------------
+
+### Business Remarks
+
+[Add business remarks]
