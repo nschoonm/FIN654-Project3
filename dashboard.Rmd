@@ -652,8 +652,126 @@ The following methods & packages in R were used to explore the data:
 
 The specific functions used where:  
   
-1. abc
-  + TODO
+1.  na.omit
+  + Returns the object with incomplete cases removed.
+2.  read.csv
+  + Reads a file in table format and creates a data frame from it, with cases corresponding to lines and variables to fields in the file. read.csv and read.csv2 are identical to read.table except for the defaults. They are intended for reading ‘comma separated value’ files (‘.csv’).
+3.  diff
+  + Returns suitably lagged and iterated differences.
+4.  log
+  + Computes logarithms, by default natural logarithms.
+5.  as.matrix
+  + Attempts to turn its argument into a matrix.
+6.  abs
+  + Computes the absolute value of x.
+7.  paste
+  + Concatenate vectors after converting to character.
+8.  colnames
+  + 
+9.  as.Date
+  + Convert an object to a date or date-time.
+10.  as.character
+  + 
+11.  cbind
+  + Take a sequence of vector, matrix or data-frame arguments and combine by columns or rows, respectively.
+12.  data.frame
+  + Creates data frames, tightly coupled collections of variables which share many of the properties of matrices and of lists, used as the fundamental data structure by most of R's modeling software.
+13.  as.zooreg
+  + 
+14.  ncol
+  + Return the number of columns present in x.
+15.  cor
+  + Compute the covariance of x and y if these are vectors.
+16.  colSds
+  + Standard deviation estimates for each column in a matrix.
+17.  rollapply
+  + A generic function for applying a function to rolling margins of an array.
+18.  format
+  + Format an R object for pretty printing.
+19.  index
+  + Generic functions for extracting the index of an object and replacing it.
+20.  merge
+  + Merge two data frames by common columns or row names, or do other versions of database join operations.
+21.  apply.monthly
+  + 
+22.  as.xts
+  + 
+23.  matrix
+  + 
+24.  rownames
+  + 
+25.  as.numeric
+  + Method should return an object of base type "numeric" number.
+26.  autoplot.zoo
+  + Takes a zoo object and returns a ggplot2 object.
+27.  summary
+  + Generic function used to produce result summaries of the results of various. model fitting functions. 
+28. colMeans
+  + Calculates the mean for each column in a matrix.
+29. colMedians
+  + Calculates the median for each column in a matrix.
+30. colSds
+  + Standard deviation estimates for each column in a matrix.
+31. colIQRs
+  + Estimates of the interquartile range for each column in a matrix.
+32. skewness
+  + This function computes skewness of given data. In statistics, skewness is a measure of the asymmetry of the probability distribution of a random variable about its mean. In other words, skewness tells you the amount and direction of skew (departure from horizontal symmetry). The skewness value can be positive or negative, or even undefined.
+33. kurtosis
+  + This function computes the estimator of Pearson's measure of kurtosis. Like skewness, kurtosis is a statistical measure that is used to describe the distribution. Whereas skewness differentiates extreme values in one versus the other tail, kurtosis measures extreme values in either tail. Distributions with large kurtosis exhibit tail data exceeding the tails of the normal distribution (e.g., five or more standard deviations from the mean). Distributions with low kurtosis exhibit tail data that are generally less extreme than the tails of the normal distribution.
+34.  knitr::kable
+  + This is a very simple table generator. It is simple by design. It is not intended to replace any other R packages for making tables.
+35.  round
+  + Round rounds the values in its first argument to the specified number of decimal places (default 0).
+36.  coredata
+  + 
+37.  ts
+  + Used to create time-series objects.
+38.  ccf
+  + Computes the cross-correlation or cross-covariance of two univariate series.
+39.  seq
+  + Generate regular sequences. seq is a standard generic with a default method.
+40.  reformulate
+  + 
+41.  rq
+  + Quantile regression.
+42.  lm
+  + Used to fit linear models. It can be used to carry out regression, single stratum analysis of variance and analysis of covariance.
+43.  plot
+  + Generic function for plotting of R objects.
+44.  quantile
+  + The generic function quantile produces sample quantiles corresponding to the given probabilities. The smallest observation corresponds to a probability of 0 and the largest to a probability of 1.
+45.  max
+  + 
+46.  density
+  + 
+47.  median
+  + 
+48.  ggplot
+  + Initializes a ggplot object. It can be used to declare the input data frame for a graphic and to specify the set of plot aesthetics intended to be common throughout all subsequent layers unless specifically overridden.
+49.  aes
+  + Aesthetic mappings describe how variables in the data are mapped to visual properties (aesthetics) of geoms.
+50.  geom_density
+  + 
+51.  geom_vline
+  + These geoms add reference lines (sometimes called rules) to a plot, either horizontal, vertical, or diagonal (specified by slope and intercept). These are useful for annotating plots.
+52.  annotate
+  + This function adds geoms to a plot, but unlike typical a geom function, the properties of the geoms are not mapped from variables of a data frame, but are instead passed in as vectors. This is useful for adding small annotations (such as text labels) or if you have your data in vectors, and for some reason don't want to put them in a data frame.
+53.  rowSums
+  + 
+54.  geom_histogram
+  + 
+55.  as.vector
+  + 
+56.  min
+  + 
+57.  sqrt
+  + 
+58.  length
+  + Get or set the length of vectors (including lists) and factors, and of any other R object for which a method has been defined.
+59.  fit.GPD
+  + 
+60.  showRM
+  +
 
 ### Data Insights
 
