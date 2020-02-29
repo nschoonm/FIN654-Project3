@@ -634,7 +634,33 @@ Row {data-height=400}
 
 ### Skills and Tools
 
-[List Skills and Tools]
+The following methods & packages in R were used to explore the data:
+
+1. flexdashboard
+  + Create interactive dashboards using rmarkdown.
+2. ggplot2
+  + Create elegant data visualisations using the grammar of graphics package.  Used to visualize the size and direction of the exchange rate percentages.
+3. shiny
+  + Used for interactive pages.
+4. QRM
+  + Provides functions for quantitative risk management .
+5. qrmdata
+  + Various data sets (stocks, stock indices, constituent data, FX, zero-coupon bond yield curves, volatility, commodities) for Quantitative Risk Management practice.
+6. xts
+  + eXtensible Time Series package. Used to create a time series of objects with the ability to add custom attributes at any time.
+7. zoo
+  + S3 infrastructure for regular and irregular time series package. Used to transform our data into a structure that we can use to interface with other time series data and packages.
+8. psych
+  + A package for personality, psychometric, and psychological research.
+9. matrixStats
+  + Functions that apply to rows and columns of matricies (and vectors) package.
+10. quantreg
+  + Quantile regression package. Used to do a regression analysis on the 95th percent percentile.
+
+The specific functions used where:  
+  
+1. abc
+  + TODO
 
 ### Data Insights
 
