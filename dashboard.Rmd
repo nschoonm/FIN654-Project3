@@ -204,3 +204,27 @@ Row {data-height=300}
 ### Data Insights
 
 [Add data insights. Which has highest risk, tails, expected shortfall values and value at risk values, what do they mean?]
+
+```{r include=FALSE}
+# --------------------- Losses section -----------------------
+```
+
+Losses {data-orientation=rows}
+=====================================     
+   
+Row {data-height=700}
+-------------------------------------
+
+### Losses Graph
+
+Losses Graph
+```{r}
+# Add graphs for Losses
+```
+
+Row {data-height=300}
+-------------------------------------
+
+### Data Insights
+
+[Add data insights. What is the loss limit, VAR, ES, what do they mean?  What about the distribution?]
