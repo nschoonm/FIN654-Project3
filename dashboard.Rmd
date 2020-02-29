@@ -427,29 +427,60 @@ Row {data-height=300}
 
 Expected Shortfall {data-orientation=rows}
 =====================================     
+
+```{r Shortfall code}
+# elementReturns = returns[,1]
+expected_shortfall <- function(elementReturns)
+{
+  returns1 <- elementReturns
+  colnames(returns1) <- "Returns" #kluge to coerce column name for df
+  returns1.df <- data.frame(Returns = returns1[,1], Distribution = rep("Historical", each = length(returns1)))
+    
+  alpha <- 0.95 # reactive({ifelse(input$alpha.q>1,0.99,ifelse(input$alpha.q<0,0.001,input$alpha.q))})
+    
+  # Value at Risk
+  VaR.hist <- quantile(returns1,alpha)
+  VaR.text <- paste("Value at Risk =", round(VaR.hist, 2))
+    
+  # Determine the max y value of the density plot.
+  # This will be used to place the text above the plot
+  VaR.y <- max(density(returns1.df$Returns)$y)
+    
+  # Expected Shortfall
+  ES.hist <- median(returns1[returns1 > VaR.hist])
+  ES.text <- paste("Expected Shortfall =", round(ES.hist, 2))
+    
+  p <- ggplot(returns1.df, aes(x = Returns, fill = Distribution)) + geom_density(alpha = 0.5) + 
+      geom_vline(aes(xintercept = VaR.hist), linetype = "dashed", size = 1, color = "firebrick1") + 
+      geom_vline(aes(xintercept = ES.hist), size = 1, color = "firebrick1") +
+      annotate("text", x = 2+ VaR.hist, y = VaR.y*1.05, label = VaR.text) +
+      annotate("text", x = 1.5+ ES.hist, y = VaR.y*1.1, label = ES.text) + scale_fill_manual( values = "dodgerblue4")
+  p
+}
+```
    
 Row {data-height=700}
 -------------------------------------
 
 ### Nickel Shortfall
 
-Nickel Shortfall
 ```{r}
 # Add graphs for Nickel Shortfall
+expected_shortfall(returns[,1])
 ```
 
 ### Copper Shortfall
 
-Copper Shortfall
 ```{r}
 # Add graphs for Copper Shortfall
+expected_shortfall(returns[,2])
 ```
 
 ### Aluminum Shortfall
 
-Aluminum Shortfall
 ```{r}
 # Add graphs for Aluminum Shortfall
+expected_shortfall(returns[,3])
 ```
 
 Row {data-height=300}
