@@ -228,3 +228,34 @@ Row {data-height=300}
 ### Data Insights
 
 [Add data insights. What is the loss limit, VAR, ES, what do they mean?  What about the distribution?]
+
+```{r include=FALSE}
+# --------------------- Extremes section -----------------------
+```
+
+Extremes {data-orientation=rows}
+=====================================     
+   
+Row {data-height=700}
+-------------------------------------
+
+### Estimated tail probabilities for confidence interval x
+
+Estimated tail probabilities
+```{r}
+# Add graphs for Estimated tail probabilities for confidence interval x
+```
+
+### Estimated tail probabilities for confidence interval y
+
+Estimated tail probabilities
+```{r}
+# Add graphs for Estimated tail probabilities for confidence interval y
+```
+
+Row {data-height=300}
+-------------------------------------
+
+### Data Insights
+
+[Add data insights. Little about GPD, high thresholds vs low, what happens?  What is it more accurate?]
