@@ -674,17 +674,17 @@ The specific functions used where:
 7.  paste
   + Concatenate vectors after converting to character.
 8.  colnames
-  + 
+  + Retrieve or set the row or column names of a matrix-like object.
 9.  as.Date
   + Convert an object to a date or date-time.
 10.  as.character
-  + 
+  + Create or test for objects of type "character".
 11.  cbind
   + Take a sequence of vector, matrix or data-frame arguments and combine by columns or rows, respectively.
 12.  data.frame
   + Creates data frames, tightly coupled collections of variables which share many of the properties of matrices and of lists, used as the fundamental data structure by most of R's modeling software.
 13.  as.zooreg
-  + 
+  + Convert an object to a zooreg.
 14.  ncol
   + Return the number of columns present in x.
 15.  cor
@@ -700,13 +700,13 @@ The specific functions used where:
 20.  merge
   + Merge two data frames by common columns or row names, or do other versions of database join operations.
 21.  apply.monthly
-  + 
+  + Apply a specified function to each distinct period in a given time series object.
 22.  as.xts
-  + 
+  + Conversion functions to coerce data objects of arbitrary classes to class xts and back, without losing any attributes of the original format.
 23.  matrix
-  + 
+  + Creates a matrix from the given set of values.
 24.  rownames
-  + 
+  + Retrieve or set the row names of a matrix-like object.
 25.  as.numeric
   + Method should return an object of base type "numeric" number.
 26.  autoplot.zoo
@@ -730,7 +730,7 @@ The specific functions used where:
 35.  round
   + Round rounds the values in its first argument to the specified number of decimal places (default 0).
 36.  coredata
-  + 
+  + Generic functions for extracting the core data contained in a (more complex) object and replacing it.
 37.  ts
   + Used to create time-series objects.
 38.  ccf
@@ -738,7 +738,7 @@ The specific functions used where:
 39.  seq
   + Generate regular sequences. seq is a standard generic with a default method.
 40.  reformulate
-  + 
+  + Returns a formula based on the string input.
 41.  rq
   + Quantile regression.
 42.  lm
@@ -748,35 +748,35 @@ The specific functions used where:
 44.  quantile
   + The generic function quantile produces sample quantiles corresponding to the given probabilities. The smallest observation corresponds to a probability of 0 and the largest to a probability of 1.
 45.  max
-  + 
+  + Return the maximum of all the values present in their arguments.
 46.  density
-  + 
+  + The (S3) generic function density computes kernel density estimates.
 47.  median
-  + 
+  + Compute the sample median.
 48.  ggplot
   + Initializes a ggplot object. It can be used to declare the input data frame for a graphic and to specify the set of plot aesthetics intended to be common throughout all subsequent layers unless specifically overridden.
 49.  aes
   + Aesthetic mappings describe how variables in the data are mapped to visual properties (aesthetics) of geoms.
 50.  geom_density
-  + 
+  + Computes and draws kernel density estimate, which is a smoothed version of the histogram.
 51.  geom_vline
   + These geoms add reference lines (sometimes called rules) to a plot, either horizontal, vertical, or diagonal (specified by slope and intercept). These are useful for annotating plots.
 52.  annotate
   + This function adds geoms to a plot, but unlike typical a geom function, the properties of the geoms are not mapped from variables of a data frame, but are instead passed in as vectors. This is useful for adding small annotations (such as text labels) or if you have your data in vectors, and for some reason don't want to put them in a data frame.
 53.  rowSums
-  + 
+  + Form row sums and means for numeric arrays (or data frames).
 54.  geom_histogram
-  + 
+  + Visualise the distribution of a single continuous variable by dividing the x axis into bins and counting the number of observations in each bin. Histograms (geom_histogram()) display the counts with bars.
 55.  as.vector
-  + 
+  + Attempts to coerce its argument into a vector of mode.
 56.  min
-  + 
+  + Returns the (regular or parallel) minima of the input values.
 57.  sqrt
-  + 
+  + Computes the (principal) square root of x, √{x}.
 58.  length
   + Get or set the length of vectors (including lists) and factors, and of any other R object for which a method has been defined.
 59.  fit.GPD
-  + 
+  + Functions for fitting, analysing and risk measures according to POT/GPD.
 60.  showRM
   +
 
