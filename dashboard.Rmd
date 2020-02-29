@@ -449,8 +449,8 @@ expected_shortfall <- function(elementReturns)
   p <- ggplot(returns1.df, aes(x = Returns, fill = Distribution)) + geom_density(alpha = 0.5) + 
       geom_vline(aes(xintercept = VaR.hist), linetype = "dashed", size = 1, color = "firebrick1") + 
       geom_vline(aes(xintercept = ES.hist), size = 1, color = "firebrick1") +
-      annotate("text", x = 2+ VaR.hist, y = VaR.y*1.05, label = VaR.text) +
-      annotate("text", x = 1.5+ ES.hist, y = VaR.y*1.1, label = ES.text) + scale_fill_manual( values = "dodgerblue4")
+      annotate("text", x = 1+ VaR.hist, y = VaR.y*1.05, label = VaR.text) +
+      annotate("text", x = 1+ ES.hist, y = VaR.y*1.1, label = ES.text) + scale_fill_manual( values = "dodgerblue4")
   p
 }
 ```
