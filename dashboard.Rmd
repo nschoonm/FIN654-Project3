@@ -502,7 +502,7 @@ Row {data-height=700}
 
 ### Losses Graph
 
-```{r}
+```{r Losses code}
 # Now for Loss Analysis
 # Get last prices
 price.last <- as.numeric(tail(data[, -1], n=1))
@@ -542,7 +542,58 @@ Row {data-height=300}
 ```
 
 Extremes {data-orientation=rows}
-=====================================     
+=====================================    
+
+```{r Extremes code}
+# mean excess plot to determine thresholds for extreme event management
+data <- as.vector(loss.rf) # data is purely numeric
+umin <-  min(data)         # threshold u min
+umax <-  max(data) - 0.1   # threshold u max
+nint <- 100                # grid length to generate mean excess plot
+grid.0 <- numeric(nint)    # grid store
+e <- grid.0                # store mean exceedances e
+upper <- grid.0            # store upper confidence interval
+lower <- grid.0            # store lower confidence interval
+u <- seq(umin, umax, length = nint) # threshold u grid
+alpha <- 0.95                  # confidence level
+for (i in 1:nint) {
+    data <- data[data > u[i]]  # subset data above thresholds
+    e[i] <- mean(data - u[i])  # calculate mean excess of threshold
+    sdev <- sqrt(var(data))    # standard deviation
+    n <- length(data)          # sample size of subsetted data above thresholds
+    upper[i] <- e[i] + (qnorm((1 + alpha)/2) * sdev)/sqrt(n) # upper confidence interval
+    lower[i] <- e[i] - (qnorm((1 + alpha)/2) * sdev)/sqrt(n) # lower confidence interval
+  }
+mep.df <- data.frame(threshold = u, threshold.exceedances = e, lower = lower, upper = upper)
+loss.excess <- loss.rf[loss.rf > u]
+# Voila the plot => you may need to tweak these limits!
+p <- ggplot(mep.df, aes( x= threshold, y = threshold.exceedances)) + geom_line() + geom_line(aes(x = threshold, y = lower), colour = "red") + geom_line(aes(x = threshold,  y = upper), colour = "red") + annotate("text", x = 400, y = 200, label = "upper 95%") + annotate("text", x = 200, y = 0, label = "lower 5%")
+#
+# GPD to describe and analyze the extremes
+#
+#library(QRM)
+alpha.tolerance <- 0.95
+u <- quantile(loss.rf, alpha.tolerance , names=FALSE)
+fit <- fit.GPD(loss.rf, threshold=u) # Fit GPD to the excesses
+xi.hat <- fit$par.ests[["xi"]] # fitted xi
+beta.hat <- fit$par.ests[["beta"]] # fitted beta
+data <- loss.rf
+n.relative.excess <- length(loss.excess) / length(loss.rf) # = N_u/n
+VaR.gpd <- u + (beta.hat/xi.hat)*(((1-alpha.tolerance) / n.relative.excess)^(-xi.hat)-1) 
+ES.gpd <- (VaR.gpd + beta.hat-xi.hat*u) / (1-xi.hat)
+n.relative.excess <- length(loss.excess) / length(loss.rf) # = N_u/n
+VaR.gpd <- u + (beta.hat/xi.hat)*(((1-alpha.tolerance) / n.relative.excess)^(-xi.hat)-1) 
+ES.gpd <- (VaR.gpd + beta.hat-xi.hat*u) / (1-xi.hat)
+# Plot away
+VaRgpd.text <- paste("GPD: Value at Risk =", round(VaR.gpd, 2))
+ESgpd.text <- paste("Expected Shortfall =", round(ES.gpd, 2))
+title.text <- paste(VaRgpd.text, ESgpd.text, sep = " ")
+loss.plot <- ggplot(loss.rf.df, aes(x = Loss, fill = Distribution)) + geom_density(alpha = 0.2)
+loss.plot <- loss.plot + geom_vline(aes(xintercept = VaR.gpd), colour = "blue", linetype = "dashed", size = 0.8)
+loss.plot <- loss.plot + geom_vline(aes(xintercept = ES.gpd), colour = "blue", size = 0.8) 
+  #+ annotate("text", x = 300, y = 0.0075, label = VaRgpd.text, colour = "blue") + annotate("text", x = 300, y = 0.005, label = ESgpd.text, colour = "blue")
+loss.plot <- loss.plot + xlim(0,500) + ggtitle(title.text)
+```
    
 Row {data-height=700}
 -------------------------------------
@@ -552,6 +603,7 @@ Row {data-height=700}
 Estimated tail probabilities
 ```{r}
 # Add graphs for Estimated tail probabilities for confidence interval x
+showRM(fit, alpha = 0.99, RM = "VaR", method = "BFGS")
 ```
 
 ### Estimated tail probabilities for confidence interval y
@@ -559,6 +611,7 @@ Estimated tail probabilities
 Estimated tail probabilities
 ```{r}
 # Add graphs for Estimated tail probabilities for confidence interval y
+showRM(fit, alpha = 0.99, RM = "ES", method = "BFGS") 
 ```
 
 Row {data-height=300}
