@@ -797,7 +797,14 @@ The specific functions used where:
 
 ### Data Insights
 
-[Data Insights details]
+Data insights provided in each of the sections:
+
+  + Data Exploration
+  + Volatility
+  + Correlation Sensitivity
+  + Expected Shortfall
+  + Losses
+  + Extremes
 
 Row {data-height=600}
 -------------------------------------
