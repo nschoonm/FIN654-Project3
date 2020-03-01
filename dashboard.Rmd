@@ -429,6 +429,7 @@ Row {data-height=300}
 
 The nickel-aluminium correlation sensivity to alumium volatility is the only combination that fits within our limits. The nickel-copper correlation sensivity to copper volatility shows the highest positive spikes.  
 
+As the graphs above indicate, both the Nickel-Copper correlation and the Copper-Aluminium correlation, have significant valleys outside of their lower control limits, and minor peaks just above their upper control limit. Whereas, the Nickel-Aluminium correlation appears to be the most stable, as it is staying within the bounds of both limits.
 ```{r include=FALSE}
 # --------------------- Expected Shortfall section -----------------------
 ```
