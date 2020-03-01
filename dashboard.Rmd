@@ -289,10 +289,6 @@ Row {data-height=400}
     
 ### Data Insights
 
-[Add data insights from graphs and data]
-<br/><br/>
-
-[Talk abut time frame, volatility, correlation, skewness andkurtosis]
 The time series plot shows lots of clustering and large spikes in all 3 metals.  When comparing all 3 metals, we see the most clustering and the heaviest tails in nickel, indicating that nickel has higher volatility than the other metals.  As we look at the descriptive statistics we see that nickel has much bigger gains when compared to losses and averages higher returns than both copper and aluminium. The data moments show that size of the returns is highly skewed.  The kurtosis levels indicate a leptokurtic distribution.  This is an indicator of a higher probability of extreme outliers.  
 
 ```{r include=FALSE}
@@ -635,7 +631,7 @@ Here we use the GPD to measure our risks in the case of extreme market stress.  
 
 In this case of extreme market stress we need at least 305.99 but should really have a reserve of 386.06 to make sure that we can survive the extreme event.  It appears that if we want to have an equal investment in all 3 metals we would need more capital to invest in our receivables above the alloted $250 million.
 
-Using GPD, the expected shortfall computed at 450.9, more than double the original 194.46. This significant difference could be detrimental for an investment should the risk occur. Lastly, the "Estimated tail probabilities" indicates the GPD having greater variance for ES compared to VaR.
+Using GPD, the expected shortfall computed at 450.9, more than double the original 244.99. This significant difference could be detrimental for an investment should the risk occur. Lastly, the "Estimated tail probabilities" indicates the GPD having greater variance for ES compared to VaR.
 
 ```{r include=FALSE}
 # --------------------- Conclusion section -----------------------
