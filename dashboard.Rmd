@@ -663,7 +663,7 @@ Row {data-height=300}
 
 ### Data Insights
 
-Here we use the GPD to measure our risks in the case of extreme market stress.  We should definately consider these extreme risks because Russia produces 90% of the world's nickel.  If there is any instability in our relationship with Russia, such as an imposed tariff, we could suffer from the extreme losses and must have the reserves to hold our company through this market stress event. 
+Here we use the Generalized Pareto Distribution (GPD) to measure our risks in the case of extreme market stress.  We should definately consider these extreme risks because Russia produces 90% of the world's nickel.  If there is any instability in our relationship with Russia, such as an imposed tariff, we could suffer from the extreme losses and must have the reserves to hold our company through this market stress event. 
 
 In this case of extreme market stress we need at least 305.99 but should really have a reserve of 386.06 to make sure that we can survive the extreme event.  It appears that if we want to have an equal investment in all 3 metals we would need more capital to invest in our receivables above the alloted $250 million.
 
