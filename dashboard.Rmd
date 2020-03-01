@@ -303,6 +303,16 @@ There are peaks in the end of the second quarter, beginning of third quarter, in
 
 The global economic events of 2008 and 2009 had a lasting impact on the performance of Nickle and Copper markets.  The European debt crisis in 2012 created instability and very high volatility in the copper market.  The slow and weak recovery after the great recession continued to transfer over to unstable pricing and created challenges in risk management in metals.
 
+All metals showed a negative 1st quartile values which shows the metals values below the average.
+
+  + 1st Qu.:-0.9997   1st Qu.:-0.6343   1st Qu.:-0.5038
+
+These have almost the same magnitude in the opposite direction for the 3rd quartile values above the average.
+
+  + 3rd Qu.: 1.0481   3rd Qu.: 0.7165   3rd Qu.: 0.5634
+
+This seems to indicate that the fluctuation between positive and negative for each metal was about the same.  
+
 The magnitude of the correlation between nickel/copper and nickel/aluminum is about the same (~0.1).  Nickel/copper has a negative correlation (-0.114838413), while nickel/aluminum has a positive correlation (0.101273327).  Copper/aluminum has a very week correlation (-0.003052345).  Nickel and aluminum are both good conductors and rate similarly for wire usage.  This could lead to their positive correlation, while copper being the best, would results in a substitution of product, rather than similar use.  This could be the cause of the negative correlation between copper and nickel.
 
 ```{r include=FALSE}
