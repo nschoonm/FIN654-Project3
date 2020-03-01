@@ -590,6 +590,14 @@ ES.gpd <- (VaR.gpd + beta.hat-xi.hat*u) / (1-xi.hat)
 n.relative.excess <- length(loss.excess) / length(loss.rf) # = N_u/n
 VaR.gpd <- u + (beta.hat/xi.hat)*(((1-alpha.tolerance) / n.relative.excess)^(-xi.hat)-1) 
 ES.gpd <- (VaR.gpd + beta.hat-xi.hat*u) / (1-xi.hat)
+```
+   
+Row {data-height=700}
+-------------------------------------
+
+### GDP Loss Limits
+
+```{r GPD Loss Limits Graph}
 # Plot away
 VaRgpd.text <- paste("GPD: Value at Risk =", round(VaR.gpd, 2))
 ESgpd.text <- paste("Expected Shortfall =", round(ES.gpd, 2))
@@ -603,20 +611,17 @@ ggplot(loss.rf.df, aes(x = Loss, fill = Distribution)) +
   xlim(0,500) +
   ggtitle(title.text)
 ```
-   
-Row {data-height=700}
--------------------------------------
 
 ### Estimated tail probabilities: Risk Measure = Value at Risk ("VaR")
 
-```{r}
+```{r Value at Risk}
 # Add graphs for Estimated tail probabilities for confidence interval x
 showRM(fit, alpha = 0.99, RM = "VaR", method = "BFGS")
 ```
 
 ### Estimated tail probabilities: Risk Measure = Expected Shortfall ("ES")
 
-```{r}
+```{r Expected Shortfal}
 # Add graphs for Estimated tail probabilities for confidence interval y
 showRM(fit, alpha = 0.99, RM = "ES", method = "BFGS") 
 ```
