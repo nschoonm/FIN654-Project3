@@ -591,11 +591,14 @@ ES.gpd <- (VaR.gpd + beta.hat-xi.hat*u) / (1-xi.hat)
 VaRgpd.text <- paste("GPD: Value at Risk =", round(VaR.gpd, 2))
 ESgpd.text <- paste("Expected Shortfall =", round(ES.gpd, 2))
 title.text <- paste(VaRgpd.text, ESgpd.text, sep = " ")
-loss.plot <- ggplot(loss.rf.df, aes(x = Loss, fill = Distribution)) + geom_density(alpha = 0.2)
-loss.plot <- loss.plot + geom_vline(aes(xintercept = VaR.gpd), colour = "blue", linetype = "dashed", size = 0.8)
-loss.plot <- loss.plot + geom_vline(aes(xintercept = ES.gpd), colour = "blue", size = 0.8) 
-  #+ annotate("text", x = 300, y = 0.0075, label = VaRgpd.text, colour = "blue") + annotate("text", x = 300, y = 0.005, label = ESgpd.text, colour = "blue")
-loss.plot <- loss.plot + xlim(0,500) + ggtitle(title.text)
+title.text = paste0('GPD: ', round(alpha.tolerance * 100, 0), "% Loss Limits")
+ggplot(loss.rf.df, aes(x = Loss, fill = Distribution)) +
+  geom_density(alpha = 0.2) +
+  geom_vline(aes(xintercept = VaR.gpd), colour = "blue", linetype = "dashed", size = 0.8) +
+  geom_vline(aes(xintercept = ES.gpd), colour = "blue", size = 0.8) +
+  annotate("text", x = 300, y = 0.005, label = ESgpd.text, colour = "blue") +
+  xlim(0,500) +
+  ggtitle(title.text)
 ```
    
 Row {data-height=700}
@@ -620,8 +623,18 @@ Row {data-height=300}
 
 ### Data Insights
 
+<<<<<<< HEAD
 [Add data insights. Little about GPD, high thresholds vs low, what happens?  What is it more accurate?]
 Here we the GDP to measure our risks in the case of extreme market stress.  We should definately consider these extreme risks because Russia produces 90% of the world's nickel.  If there is any instability in our relationship with Russia, such as an imposed tariff, we could suffer from the extreme losses and must have the reserves to hold our company through this market stress event. In this case of extreme market stress we need at least 305.99 but should really have a reserve of 386.06 to make sure that we can survive the extreme event.  It appears that if we want to have an equal investment in all 3 metals we would need more capital to invest in our receivables above the alloted $250 million.
+=======
+The corresponding timeseries suggests most fluctuations with nickel, followed by copper, then aluminum. Since the VaR is the largest likely loss for a given portfolio, and nickel has greater ES, this indicates a considerably risky investment.
+
+
+The overall loss limit exhibits an exponential tail. Without further proof whether the overall distribution is normal, suggests the use of ES over VaR. Also, the GPD provides better accuracy by relying less on the distribution central mode. Since calculations focuses directly on the exceedance, results will better fit the data subset.
+
+
+Using GPD, the expected shortfall computed at 450.9, more than double the original 194.46. This significant difference could be detrimental for an investment should the risk occur. Lastly, the "Estimated tail probabilities" indicates the GPD having greater variance for ES compared to VaR.
+>>>>>>> 368ac50ebec9855ab790d0c7fc7fe87539eca8d4
 
 ```{r include=FALSE}
 # --------------------- Conclusion section -----------------------
@@ -789,7 +802,17 @@ Row {data-height=600}
 -------------------------------------
 
 ### Business Remarks
+1. How would the performance of these commodities affect the size and timing of shipping arrangements?
 
+Performance can be measured by defining a VaR, which defines the maximum expected loss with a given confidence. An associated ES, is the average of all loses that exceed the VaR. Using previous ES against an accepted risk level, will ensure the right amount of commodities are produced. Specifically, an abundance of non-distributed commodities may overwhelm transportation means. Likewise, not maximizing the commodities for a given shipping location, corresponds to under-utilizing shipping resources. Performance can be measured by an overall net sale, or net sale relative to shipped goods.
+
+2. How would the value of new shipping arrangements affect the value of our business with our current customers?
+
+New shipping arrangements could pivot away companies from current customers to tramp trade, if shipment is more lucrative. This would hurt the current supply chain relationships.
+
+3. How would we manage the allocation of existing resources given we have just landed in this new market?
+
+<<<<<<< HEAD
 Question #1 - How would the performance of these commodities affect the size and timing of shipping arrangements?
 
 When the price of a commodity falls due to a decrease in demand than the size of the shipment is decreased leading to an increase in shipping time.  On the other hand, if the price of commodity falls due to an increase in supply than we would see an increase in the size of the shipment and a decrease in timing.  
@@ -808,3 +831,6 @@ Sources:
 https://articles2.marketrealist.com/2014/01/commodity-prices-price-arbitrage-affect-dry-bulk-shippers/#
 
 https://www.thebalance.com/the-biggest-cobalt-producers-2339726
+=======
+Understanding the price sensitivity of the metals market, is an important requirement for accurate asset allotment. Information such as VAR and ES, allows resources and budget to be properly distributed, with the intention to improves processes, without negative side-effects to existing business models used.
+>>>>>>> 368ac50ebec9855ab790d0c7fc7fe87539eca8d4
