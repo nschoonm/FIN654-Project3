@@ -284,6 +284,12 @@ answer <- round(answer, 3)
 knitr::kable(answer)
 ```
 
+<hr>
+Correlation
+```{r}
+R.corr.1
+```
+
 Row {data-height=400}
 -------------------------------------
     
