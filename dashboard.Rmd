@@ -291,6 +291,10 @@ Row {data-height=400}
 
 The time series plot shows lots of clustering and large spikes in all 3 metals.  When comparing all 3 metals, we see the most clustering and the heaviest tails in nickel, indicating that nickel has higher volatility than the other metals.  As we look at the descriptive statistics we see that nickel has much bigger gains when compared to losses and averages higher returns than both copper and aluminium. The data moments show that size of the returns is highly skewed.  The kurtosis levels indicate a leptokurtic distribution.  This is an indicator of a higher probability of extreme outliers.  
 
+There are peaks in the end of the second quarter, beginning of third quarter, in the current time periods examined - which leads us to believe that these peaks are seasonal in nature. This is perhaps due to the increase in construction projects during these time periods. 
+
+The global economic events of 2008 and 2009 had a lasting impact on the performance of Nickle and Copper markets.  The European debt crisis in 2012 created instability and very high volatility in the copper market.  The slow and weak recovery after the great recession continued to transfer over to unstable pricing and created challenges in risk management in metals.
+
 ```{r include=FALSE}
 # --------------------- Volatility section -----------------------
 ```
@@ -361,6 +365,8 @@ Row {data-height=300}
 ### Data Insights
 
 The corresponding timeseries suggests most fluctuations with nickel, followed by copper, then aluminum. Since the VaR is the largest likely loss for a given portfolio, and nickel has greater ES, this indicates a considerably risky investment.
+
+There are highstress points noted in our research that are indirectly correlated with the data in the time series. The European Union financial crisis with Greece, as well as the potential impact of Brexit during the entirety of the 2013-2016 years, can attribute to the fluctuations of the metals we have examined. Also, there may be a shortening ripple effect from the 2008 Recession experienced across global markets, during the time periods examined.
 
 The overall loss limit exhibits an exponential tail. Without further proof whether the overall distribution is normal, suggests the use of ES over VaR. Also, the GPD provides better accuracy by relying less on the distribution central mode. Since calculations focuses directly on the exceedance, results will better fit the data subset.
 
