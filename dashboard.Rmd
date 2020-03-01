@@ -486,9 +486,9 @@ Row {data-height=300}
 
 ### Data Insights
 
-Nickel VaR = 2.73 ES = 3.5
-Copper VaR = 1.87 ES = 2.27
-Aluminium VaR = 1.96 ES = 2.58
+Nickel VaR = 2.73 ES = 3.5  
+Copper VaR = 1.87 ES = 2.27  
+Aluminium VaR = 1.96 ES = 2.58  
 
 The variance between the value at risk and the expected shortfall is the smallest for copper close to that of aluminium.  Nickel has the greatest value at risk hence a greater expected shortfall.  We can visually see on the nickel graph that the curve is less peaked and therefore has longer tails than both copper and aluminium.  
 
