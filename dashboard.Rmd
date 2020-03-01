@@ -538,7 +538,7 @@ Row {data-height=300}
 
 ### Data Insights
 
-[Add data insights. What is the loss limit, VAR, ES, what do they mean?  What about the distribution?]
+[Add data insights. What is the loss limit, VAR, ES, what do they mean?  What about the distribution?]We are 95% confident that our equally weighted portfolio will not have losses in excess of 194.46.  However, we should reserve 244.99 in the case of an extreme market loss.  It is always wise to look into the extreme tail risk measures, in the case of an extreme event that could affect the market of our commodities.  
 
 ```{r include=FALSE}
 # --------------------- Extremes section -----------------------
@@ -621,6 +621,7 @@ Row {data-height=300}
 ### Data Insights
 
 [Add data insights. Little about GPD, high thresholds vs low, what happens?  What is it more accurate?]
+Here we the GDP to measure our risks in the case of extreme market stress.  We should definately consider these extreme risks because Russia produces 90% of the world's nickel.  If there is any instability in our relationship with Russia, such as an imposed tariff, we could suffer from the extreme losses and must have the reserves to hold our company through this market stress event. In this case of extreme market stress we need at least 305.99 but should really have a reserve of 386.06 to make sure that we can survive the extreme event.  It appears that if we want to have an equal investment in all 3 metals we would need more capital to invest in our receivables above the alloted $250 million.
 
 ```{r include=FALSE}
 # --------------------- Conclusion section -----------------------
@@ -789,4 +790,21 @@ Row {data-height=600}
 
 ### Business Remarks
 
-[Add business remarks]
+Question #1 - How would the performance of these commodities affect the size and timing of shipping arrangements?
+
+When the price of a commodity falls due to a decrease in demand than the size of the shipment is decreased leading to an increase in shipping time.  On the other hand, if the price of commodity falls due to an increase in supply than we would see an increase in the size of the shipment and a decrease in timing.  
+For the other scenario, we may see commodity prices rise due to an increase in demand which would in turn increase the size of the shipment.  Since the ship is filled with an increased cargo size, the shipment would be expedited.  Whereas, if the commodity price is rising due to decrease in supply, we would have a smaller shipment increasing the shipping time. 
+Since we already have bulk carriers and are going to be using tramp ships as our flexible option, we may be able to fill the gap when commodities are performing well.  The employment of these tramp ships could help mitigate the risk of smaller and slower shipments to our existing customers. 
+
+Question #2 - How would the value of new shipping arrangements affect the value of our business with our current customers?
+
+The value of the new shipping arrangements will affect our existing customers by our decision on the allocation of our $250 million in receivables.  As we enter into the nickel market, we may want to see how well our existing customers respond to our new commodity.  We must keep in mind that our existing customer/commodity portfolio is what we have based our projected earnings on in the past.  
+
+Question #3 - How would we manage the allocation of existing resources given we have just landed in this new market? 
+
+Given the value at risk for each individual return we are taking the highest risk with the nickel and will need to mitigate that risk with at least an equal investment in our existing customer markets.  As we took a quick glance in an equally weighted portfolio, we can see that we have enough capital along with collateral to enter at least 1/3 of our existing portfolio into the new market.  It is wise however to consider existing customers when entering into a new market.  
+
+Sources:
+https://articles2.marketrealist.com/2014/01/commodity-prices-price-arbitrage-affect-dry-bulk-shippers/#
+
+https://www.thebalance.com/the-biggest-cobalt-producers-2339726
