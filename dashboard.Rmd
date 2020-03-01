@@ -301,6 +301,8 @@ There are peaks in the end of the second quarter, beginning of third quarter, in
 
 The global economic events of 2008 and 2009 had a lasting impact on the performance of Nickle and Copper markets.  The European debt crisis in 2012 created instability and very high volatility in the copper market.  The slow and weak recovery after the great recession continued to transfer over to unstable pricing and created challenges in risk management in metals.
 
+The magnitude of the correlation between nickel/copper and nickel/aluminum is about the same (~0.1).  Nickel/copper has a negative correlation (-0.114838413), while nickel/aluminum has a positive correlation (0.101273327).  Copper/aluminum has a very week correlation (-0.003052345).
+
 ```{r include=FALSE}
 # --------------------- Volatility section -----------------------
 ```
