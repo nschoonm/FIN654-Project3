@@ -827,7 +827,7 @@ Given the value at risk for each individual return we are taking the highest ris
  
 Understanding the price sensitivity of the metals market, is an important requirement for accurate asset allotment. Information such as VAR and ES, allows resources and budget to be properly distributed, with the intention to improves processes, without negative side-effects to existing business models used.
 
-Sources:
+Sources:  
 https://articles2.marketrealist.com/2014/01/commodity-prices-price-arbitrage-affect-dry-bulk-shippers/#
 
 https://www.thebalance.com/the-biggest-cobalt-producers-2339726
