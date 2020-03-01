@@ -793,7 +793,7 @@ The specific functions used where:
 59.  fit.GPD
   + Functions for fitting, analysing and risk measures according to POT/GPD.
 60.  showRM
-  +
+  + Calculate the expected shortfall confidence intervals.
 
 ### Data Insights
 
