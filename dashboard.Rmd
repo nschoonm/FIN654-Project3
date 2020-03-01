@@ -295,13 +295,15 @@ Row {data-height=400}
     
 ### Data Insights
 
+The time series data runs from January 11, 2012 to March 16, 2017.  The graph shows the volitality of each of the metals over time within the range of about +5% to -5%.
+
 The time series plot shows lots of clustering and large spikes in all 3 metals.  When comparing all 3 metals, we see the most clustering and the heaviest tails in nickel, indicating that nickel has higher volatility than the other metals.  As we look at the descriptive statistics we see that nickel has much bigger gains when compared to losses and averages higher returns than both copper and aluminium. The data moments show that size of the returns is highly skewed.  The kurtosis levels indicate a leptokurtic distribution.  This is an indicator of a higher probability of extreme outliers.  
 
 There are peaks in the end of the second quarter, beginning of third quarter, in the current time periods examined - which leads us to believe that these peaks are seasonal in nature. This is perhaps due to the increase in construction projects during these time periods. 
 
 The global economic events of 2008 and 2009 had a lasting impact on the performance of Nickle and Copper markets.  The European debt crisis in 2012 created instability and very high volatility in the copper market.  The slow and weak recovery after the great recession continued to transfer over to unstable pricing and created challenges in risk management in metals.
 
-The magnitude of the correlation between nickel/copper and nickel/aluminum is about the same (~0.1).  Nickel/copper has a negative correlation (-0.114838413), while nickel/aluminum has a positive correlation (0.101273327).  Copper/aluminum has a very week correlation (-0.003052345).
+The magnitude of the correlation between nickel/copper and nickel/aluminum is about the same (~0.1).  Nickel/copper has a negative correlation (-0.114838413), while nickel/aluminum has a positive correlation (0.101273327).  Copper/aluminum has a very week correlation (-0.003052345).  Nickel and aluminum are both good conductors and rate similarly for wire usage.  This could lead to their positive correlation, while copper being the best, would results in a substitution of product, rather than similar use.  This could be the cause of the negative correlation between copper and nickel.
 
 ```{r include=FALSE}
 # --------------------- Volatility section -----------------------
